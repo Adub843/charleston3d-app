@@ -19,7 +19,7 @@ request tabs show an "Email your request" button instead.
 
 ## How it's published
 
-GitHub Pages, on every push to `main` and every hour (`.github/workflows/deploy.yml`). Each run:
+GitHub Pages, on every push to `main` and every 15 minutes (`.github/workflows/deploy.yml`). Each run:
 
 1. runs the tests,
 2. rebuilds `catalog.json` from `https://charleston3d.com/products.json` (no token needed),

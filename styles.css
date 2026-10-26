@@ -42,7 +42,8 @@ h2 { font-size: 1.4rem; margin: 0 0 .5rem; }
 .bar-in { display: flex; align-items: center; justify-content: space-between; min-height: 60px; gap: 12px; }
 .mark { display: flex; align-items: center; gap: 10px; color: var(--white); text-decoration: none; }
 .mark img { border-radius: 9px; }
-.word { font: 800 1.35rem/1 var(--sans); letter-spacing: -.02em; }
+.mark .wordmark { height: 30px; width: auto; border-radius: 0; }
+.foot-badge { width: 96px; height: auto; display: block; margin: 0 auto 8px; }
 .three { color: var(--teal-bright); }
 .bag-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,.25); background: transparent; color: var(--white); font: 600 .95rem var(--sans); cursor: pointer; }
 .bag-btn:hover { border-color: var(--white); }
