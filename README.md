@@ -2,7 +2,7 @@
 
 A small web app (add-to-home-screen ready) for ordering from Charleston3D:
 
-- **Shop**: every product published on the Charleston3D store, with search and type filters. Products the
+- **Shop**: every product published on the Charleston3D store (except ones tagged `quote` or `hidden`), with search and type filters. Products the
   console marks **Customizable** (tag `customizable`) ask for a "Name to print" (max 60 characters).
   The bag checks out in one post to the store's cart, so payment, shipping and tax all run through Shopify.
 - **Request or custom print** (one page): an item that isn't listed, or a custom design, with a description,

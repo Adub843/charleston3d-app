@@ -20,7 +20,8 @@ test("finds the free request product by tag or handle, never a paid one", () => 
 });
 
 test("catalog hides the request product, cleans text and reads the customizable tag", () => {
-  const cat = buildCatalog([prod(), prod({ id: 2, handle: "sign", tags: "Customizable, decor" }), request], "https://charleston3d.com");
+  const quote = prod({ id: 7, handle: "custom-3d-print-quote", tags: ["custom", "quote"], variants: [{ id: 70, price: "15.00", available: false }] });
+  const cat = buildCatalog([prod(), prod({ id: 2, handle: "sign", tags: "Customizable, decor" }), request, quote], "https://charleston3d.com");
   assert.equal(cat.request.variantId, 99);
   assert.deepEqual(cat.products.map((p) => p.id), [1, 2]);
   assert.equal(cat.products[0].customizable, false);

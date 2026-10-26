@@ -2,6 +2,8 @@
 
 export const PERSONALIZE_TAGS = ["customizable", "personalized", "personalised"];
 export const REQUEST_TAG = "request-product";
+// Quote placeholders ("Request a Quote" pages) can't be bought, so the shop leaves them out.
+export const HIDDEN_TAGS = ["quote", "hidden", "app-hidden"];
 export const REQUEST_HANDLES = ["custom-request", "custom-print-request", "free-custom-request", "request"];
 export const PERSONALIZATION_MAX = 60;
 export const MAX_FILE_MB = 20;
@@ -31,7 +33,7 @@ export function buildCatalog(products, store) {
   const request = findRequestProduct(products);
   const items = products
     .filter((p) => !request || p.id !== request.productId)
-    .filter((p) => !tagsOf(p).includes(REQUEST_TAG))
+    .filter((p) => !tagsOf(p).some((t) => t === REQUEST_TAG || HIDDEN_TAGS.includes(t)))
     .map((p) => {
       const tags = tagsOf(p);
       const variants = (p.variants ?? []).map((v) => ({
