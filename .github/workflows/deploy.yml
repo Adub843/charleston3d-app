@@ -1,0 +1,45 @@
+# Publishes the app to GitHub Pages. Before each publish it refreshes catalog.json from the store, so
+# products, prices, stock and the "customizable" switch match Shopify. Runs on every push to main and hourly.
+name: Deploy
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Test
+        run: node --test tests/*.test.mjs
+      - name: Refresh catalog from the store
+        # If the store can't be read (password page, outage), keep the last catalog and still publish.
+        run: node scripts/sync-catalog.mjs "${{ vars.STORE_URL || 'https://charleston3d.com' }}" || echo "::warning::Catalog refresh failed; publishing the previous catalog.json"
+      - name: Check the store accepts the app's cart post
+        # Reported as a failed step, but it doesn't block the hourly publish if Shopify is briefly unreachable.
+        continue-on-error: true
+        run: node scripts/cart-smoke.mjs "$(node -e "console.log(require('./catalog.json').store || '${{ vars.STORE_URL || 'https://charleston3d.com' }}')")"
+      - name: Collect site files
+        run: |
+          mkdir _site
+          cp -r index.html app.js lib.js styles.css catalog.json manifest.webmanifest robots.txt sitemap.xml icons _site/
+          [ -f CNAME ] && cp CNAME _site/ || true
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,14 @@
+{
+  "name": "Charleston3D",
+  "short_name": "Charleston3D",
+  "description": "Shop 3D printed gifts, request items, and send custom 3D print requests to Charleston3D.",
+  "start_url": "./?src=app-icon",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbf7ef",
+  "theme_color": "#1f2a44",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

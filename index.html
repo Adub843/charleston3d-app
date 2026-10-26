@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://cdn.shopify.com https://charleston3d.com https://www.charleston3d.com; connect-src 'self'; form-action https://charleston3d.com https://www.charleston3d.com; base-uri 'none'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Charleston3D app | Shop, request or design a custom 3D print</title>
+  <meta name="description" content="Order 3D printed gifts and decor from Charleston3D in Charleston, SC. Shop ready-made pieces, ask for something that isn't listed, or send a free custom request with a photo or 3D file.">
+  <link rel="canonical" href="https://app.charleston3d.com/">
+  <meta name="theme-color" content="#1f2a44">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Charleston3D">
+  <meta property="og:title" content="Charleston3D: shop, request or design a custom 3D print">
+  <meta property="og:description" content="Personalized 3D printed gifts made in Charleston, SC. Shop, request an item, or send a free custom request.">
+  <meta property="og:url" content="https://app.charleston3d.com/">
+  <meta property="og:image" content="https://app.charleston3d.com/icons/social.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <meta name="apple-mobile-web-app-title" content="Charleston3D">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Charleston3D",
+    "url": "https://app.charleston3d.com/",
+    "applicationCategory": "ShoppingApplication",
+    "operatingSystem": "Any",
+    "description": "Shop 3D printed gifts and decor, request items that aren't listed, and send free custom 3D print requests.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "LocalBusiness", "name": "Charleston3D", "url": "https://charleston3d.com", "address": { "@type": "PostalAddress", "addressLocality": "Charleston", "addressRegion": "SC", "addressCountry": "US" } }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="bar">
+    <div class="wrap bar-in">
+      <a class="mark" href="./" aria-label="Charleston3D app home">
+        <img src="icons/icon-192.png" alt="" width="36" height="36">
+        <span class="word">Charleston<span class="three">3D</span></span>
+      </a>
+      <button class="bag-btn" type="button" data-open-bag aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 8h14l-1 12H6L5 8Zm4 0V6a3 3 0 0 1 6 0v2"/></svg>
+        <span>Bag</span><span class="count" data-bag-count hidden>0</span>
+      </button>
+    </div>
+    <div class="row" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap">
+      <div class="hero-text">
+        <p class="eyebrow">Made to order in Charleston, SC</p>
+        <h1>What can we print for you?</h1>
+        <p class="lede">Shop our pieces, ask for something you don't see, or send us your own idea. Payment is handled securely by Shopify at charleston3d.com.</p>
+      </div>
+      <img class="hero-img" src="icons/hero.png" alt="Charleston's Rainbow Row, 3D printed" width="300" height="195">
+    </section>
+
+    <nav class="tabs wrap" role="tablist" aria-label="What would you like to do?">
+      <button role="tab" id="tab-shop" aria-controls="panel-shop" data-tab="shop" type="button">
+        <strong>Shop</strong><small>Ready to order</small>
+      </button>
+      <button role="tab" id="tab-find" aria-controls="panel-find" data-tab="find" type="button">
+        <strong>Request an item</strong><small>Not in the shop?</small>
+      </button>
+      <button role="tab" id="tab-custom" aria-controls="panel-custom" data-tab="custom" type="button">
+        <strong>Custom print</strong><small>Your idea or file</small>
+      </button>
+    </nav>
+
+    <section class="panel wrap" id="panel-shop" role="tabpanel" aria-labelledby="tab-shop" data-panel="shop">
+      <div class="shop-tools">
+        <label class="search"><span class="sr">Search the shop</span>
+          <input type="search" placeholder="Search ornaments, decor, names…" data-search autocomplete="off" enterkeyhint="search">
+        </label>
+        <div class="chips" data-types role="group" aria-label="Filter by type"></div>
+      </div>
+      <p class="muted" data-shop-note aria-live="polite"></p>
+      <ul class="grid" data-grid role="list"></ul>
+      <div class="card nudge">
+        <h2>Don't see it?</h2>
+        <p>We print far more than what's listed. Tell us what you're after and we'll quote it for free.</p>
+        <div class="nudge-btns">
+          <button class="btn" type="button" data-go="find">Request an item</button>
+          <button class="btn ghost" type="button" data-go="custom">Send a custom idea</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel wrap" id="panel-find" role="tabpanel" aria-labelledby="tab-find" data-panel="find" hidden>
+      <div class="split">
+        <form class="card req" method="post" enctype="multipart/form-data" data-req="find" novalidate>
+          <h2>Request an item that isn't listed</h2>
+          <p class="muted">Seen something you'd like, a past piece of ours, or a version in another color or size? Tell us and we'll reply with a price. It's free to ask.</p>
+          <input type="hidden" name="id" data-req-variant>
+          <input type="hidden" name="quantity" value="1">
+          <input type="hidden" name="return_to" value="/cart">
+          <input type="hidden" name="properties[Request type]" value="Item not in the shop">
+          <input type="hidden" name="properties[_Source]" data-src>
+          <div class="field">
+            <label for="f-what">What are you looking for? <span class="req-star" aria-hidden="true">*</span></label>
+            <textarea id="f-what" name="properties[Request]" rows="5" maxlength="1500" required data-label="What you're looking for" placeholder="A palmetto ornament like the one in your shop, but in navy with our last name"></textarea>
+            <p class="err" data-err hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-link">Link to an example <span class="opt">(optional)</span></label>
+            <input id="f-link" type="url" name="properties[Example link]" maxlength="300" inputmode="url" placeholder="https://" data-label="Example link">
+            <p class="err" data-err hidden></p>
+          </div>
+          <div class="pair">
+            <div class="field">
+              <label for="f-qty">How many?</label>
+              <input id="f-qty" type="number" name="properties[Quantity wanted]" min="1" max="10000" step="1" inputmode="numeric" placeholder="1" data-label="Quantity">
+              <p class="err" data-err hidden></p>
+            </div>
+            <div class="field">
+              <label for="f-date">Needed by</label>
+              <input id="f-date" type="date" name="properties[Needed by]" data-date data-label="Needed by">
+              <p class="err" data-err hidden></p>
+            </div>
+          </div>
+          <div class="field file">
+            <label for="f-photo">Photo or screenshot <span class="opt">(optional, JPG, PNG, HEIC, WebP or PDF, up to 20 MB)</span></label>
+            <input id="f-photo" type="file" name="properties[Photo]" accept=".jpg,.jpeg,.png,.heic,.heif,.webp,.pdf,image/*,application/pdf" data-file="image" data-label="Photo">
+            <p class="err" data-err hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-zip">ZIP code <span class="opt">(for shipping, US only)</span></label>
+            <input id="f-zip" class="short" type="text" name="properties[ZIP code]" inputmode="numeric" autocomplete="postal-code" maxlength="10" placeholder="29401" data-zip data-label="ZIP code">
+            <p class="err" data-err hidden></p>
+          </div>
+          <button class="btn brass full" type="submit">Send my free request</button>
+          <p class="muted small center">Next you add your email at checkout. The request is $0.00, so nothing is charged. You pay only if you approve our quote.</p>
+          <p class="status" role="status" aria-live="polite" data-status></p>
+        </form>
+        <aside class="card dark steps-card">
+          <h2>How it works</h2>
+          <ol class="steps">
+            <li><strong>Tell us what you want</strong><span>A few words, a link or a photo is plenty.</span></li>
+            <li><strong>We reply with a quote</strong><span>By email, usually within 1-2 business days.</span></li>
+            <li><strong>Approve and pay</strong><span>Through a secure Shopify invoice. Nothing is printed until you say yes.</span></li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section class="panel wrap" id="panel-custom" role="tabpanel" aria-labelledby="tab-custom" data-panel="custom" hidden>
+      <div class="split">
+        <form class="card req" method="post" enctype="multipart/form-data" data-req="custom" novalidate>
+          <h2>Request a custom 3D print</h2>
+          <p class="muted">Ornaments, signs, replacement parts, cake toppers, gifts with names and dates. Describe it, add photos or your own 3D file, and we'll quote it free.</p>
+          <input type="hidden" name="id" data-req-variant>
+          <input type="hidden" name="quantity" value="1">
+          <input type="hidden" name="return_to" value="/cart">
+          <input type="hidden" name="properties[Request type]" value="Custom design">
+          <input type="hidden" name="properties[_Source]" data-src>
+          <div class="field">
+            <label for="c-idea">Describe your idea <span class="req-star" aria-hidden="true">*</span></label>
+            <p class="hint">What is it for, roughly how big, any text or names to print, and anything it has to fit or attach to.</p>
+            <textarea id="c-idea" name="properties[Request]" rows="7" maxlength="1500" required data-label="Your idea" data-prefill></textarea>
+            <p class="err" data-err hidden></p>
+          </div>
+          <div class="pair">
+            <div class="field">
+              <label for="c-qty">Quantity wanted</label>
+              <input id="c-qty" type="number" name="properties[Quantity wanted]" min="1" max="10000" step="1" inputmode="numeric" placeholder="1" data-label="Quantity">
+              <p class="err" data-err hidden></p>
+            </div>
+            <div class="field">
+              <label for="c-date">Needed by</label>
+              <input id="c-date" type="date" name="properties[Needed by]" data-date data-label="Needed by">
+              <p class="err" data-err hidden></p>
+            </div>
+          </div>
+          <div class="pair">
+            <div class="field">
+              <label for="c-size">Size</label>
+              <input id="c-size" type="text" name="properties[Size]" maxlength="120" placeholder="About 4 in tall" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="c-colors">Colors</label>
+              <input id="c-colors" type="text" name="properties[Colors]" maxlength="120" placeholder="Navy and white" autocomplete="off">
+            </div>
+          </div>
+          <fieldset class="files">
+            <legend>Photos, sketches and 3D files <span class="opt">(optional, up to 20 MB each)</span></legend>
+            <div class="field file">
+              <label for="c-p1">Photo or PDF sketch <span class="opt">JPG, PNG, HEIC, WebP or PDF</span></label>
+              <input id="c-p1" type="file" name="properties[Photo 1]" accept=".jpg,.jpeg,.png,.heic,.heif,.webp,.pdf,image/*,application/pdf" data-file="image" data-label="Photo 1">
+              <p class="err" data-err hidden></p>
+            </div>
+            <div class="field file">
+              <label for="c-p2">Another photo <span class="opt">JPG, PNG, HEIC, WebP or PDF</span></label>
+              <input id="c-p2" type="file" name="properties[Photo 2]" accept=".jpg,.jpeg,.png,.heic,.heif,.webp,.pdf,image/*,application/pdf" data-file="image" data-label="Photo 2">
+              <p class="err" data-err hidden></p>
+            </div>
+            <div class="field file">
+              <label for="c-3d">3D file <span class="opt">STL, 3MF, OBJ or STEP</span></label>
+              <input id="c-3d" type="file" name="properties[3D file]" accept=".stl,.3mf,.obj,.step,.stp" data-file="model" data-label="3D file">
+              <p class="err" data-err hidden></p>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="c-zip">ZIP code <span class="opt">(for shipping, US only)</span></label>
+            <input id="c-zip" class="short" type="text" name="properties[ZIP code]" inputmode="numeric" autocomplete="postal-code" maxlength="10" placeholder="29401" data-zip data-label="ZIP code">
+            <p class="err" data-err hidden></p>
+          </div>
+          <button class="btn brass full" type="submit">Send my free request</button>
+          <p class="muted small center">Next you add your email at checkout. The request is $0.00, so nothing is charged. You pay only if you approve our quote.</p>
+          <p class="status" role="status" aria-live="polite" data-status></p>
+        </form>
+        <aside class="card dark steps-card">
+          <h2>How it works</h2>
+          <ol class="steps">
+            <li><strong>Send your idea</strong><span>Describe it, and add photos, a sketch or a 3D file if you have them.</span></li>
+            <li><strong>We reply with a quote</strong><span>A price and timeline by email within 1-2 business days.</span></li>
+            <li><strong>Approve and pay</strong><span>Through a secure Shopify invoice. Nothing is printed until you approve.</span></li>
+            <li><strong>Printed in Charleston</strong><span>Made in PLA in Charleston, SC and shipped to you.</span></li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="sheet" data-product aria-labelledby="pd-title">
+    <form method="dialog" class="sheet-in" data-product-form novalidate>
+      <button class="x" type="button" data-close aria-label="Close">×</button>
+      <div class="pd" data-pd></div>
+    </form>
+  </dialog>
+
+  <dialog class="sheet" data-bag aria-labelledby="bag-title">
+    <div class="sheet-in">
+      <form method="dialog"><button class="x" type="submit" aria-label="Close">×</button></form>
+      <h2 id="bag-title">Your bag</h2>
+      <div data-bag-body></div>
+    </div>
+  </dialog>
+
+  <footer class="foot">
+    <p><a href="https://charleston3d.com">charleston3d.com</a> · Made in Charleston, SC</p>
+    <p class="muted small">Orders and payment are handled securely by Shopify at charleston3d.com.</p>
+  </footer>
+
+  <noscript><p class="wrap card">This app needs JavaScript. You can also order at <a href="https://charleston3d.com">charleston3d.com</a>.</p></noscript>
+  <script type="application/json" data-config>
+    {
+      "storeUrl": "https://charleston3d.com",
+      "catalogUrl": "catalog.json",
+      "customPage": "/pages/custom-bulk-orders",
+      "email": "lewisaaron843@gmail.com",
+      "maxFileMb": 20,
+      "currency": "USD"
+    }
+  </script>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
