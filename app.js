@@ -37,7 +37,10 @@ let loadFailed = false;
 // ---------- tabs ----------
 const tabs = $$("[data-tab]");
 function show(name, focus) {
-  if (!["shop", "find", "custom"].includes(name)) name = "shop";
+  // Old links (#find, #custom) open the request page with that choice ticked.
+  const kind = $(`[data-kind="${name}"]`);
+  if (kind) { kind.checked = true; name = "request"; }
+  if (!["shop", "request"].includes(name)) name = "shop";
   for (const t of tabs) {
     const on = t.dataset.tab === name;
     t.setAttribute("aria-selected", String(on));
@@ -280,9 +283,9 @@ function setupRequests() {
     if (!request) {
       // No free request product on the store yet: send people to email instead of a form that can't post.
       form.replaceChildren(
-        h("h2", {}, form.dataset.req === "find" ? "Request an item that isn't listed" : "Request a custom 3D print"),
+        h("h2", {}, "Request something, free"),
         h("p", {}, "Requests are free. Email us what you have in mind, with any photos or 3D files, and we'll reply with a quote within 1-2 business days."),
-        h("a", { class: "btn brass full", href: `mailto:${cfg.email}?subject=${encodeURIComponent(form.dataset.req === "find" ? "Item request" : "Custom 3D print request")}` }, "Email your request"),
+        h("a", { class: "btn brass full", href: `mailto:${cfg.email}?subject=${encodeURIComponent("Charleston3D request")}` }, "Email your request"),
         h("p", { class: "muted small center" }, "Or use the form at ", h("a", { href: `${store}${cfg.customPage}` }, "charleston3d.com")),
       );
       continue;

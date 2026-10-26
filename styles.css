@@ -62,9 +62,9 @@ h2 { font-size: 1.4rem; margin: 0 0 .5rem; }
 }
 
 /* tabs */
-.tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 22px; }
+.tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 22px; }
 .tabs button { display: grid; gap: 2px; text-align: left; padding: 14px 16px; min-height: 64px; border-radius: var(--radius-sm); border: 2px solid transparent; background: var(--white); box-shadow: var(--shadow); color: var(--navy); font: inherit; cursor: pointer; }
-.tabs button:nth-child(1) { background: var(--mint); } .tabs button:nth-child(2) { background: var(--sky); } .tabs button:nth-child(3) { background: var(--pink); }
+.tabs button:nth-child(1) { background: var(--mint); } .tabs button:nth-child(2) { background: var(--pink); }
 .tabs button[aria-selected="true"] { border-color: var(--navy); }
 .tabs strong { font-size: 1rem; }
 .tabs small { color: var(--ink); opacity: .8; font-size: .82rem; }
@@ -118,6 +118,11 @@ h2 { font-size: 1.4rem; margin: 0 0 .5rem; }
 @media (max-width: 480px) { .pair { grid-template-columns: minmax(0, 1fr); } }
 .files { border: 1px dashed #cdbfa6; border-radius: var(--radius-sm); padding: 14px 16px 16px; margin: 0; display: grid; gap: 14px; background: #fcfaf5; min-width: 0; }
 .files legend { padding: 0 6px; }
+.kind { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; }
+.kind legend { font-weight: 600; color: var(--navy); margin-bottom: 6px; padding: 0; }
+.kind label { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); cursor: pointer; }
+.kind label:has(input:checked) { border-color: var(--navy); background: var(--shell); font-weight: 600; }
+.kind input { width: 20px; height: 20px; accent-color: var(--navy); margin: 0; }
 .status { margin: 0; min-height: 1.2em; font-weight: 600; color: var(--teal); }
 .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; counter-reset: s; }
 .steps li { counter-increment: s; display: grid; grid-template-columns: 36px minmax(0, 1fr); column-gap: 12px; }

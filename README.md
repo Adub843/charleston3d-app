@@ -5,10 +5,11 @@ A small web app (add-to-home-screen ready) for ordering from Charleston3D:
 - **Shop**: every product published on the Charleston3D store, with search and type filters. Products the
   console marks **Customizable** (tag `customizable`) ask for a "Name to print" (max 60 characters).
   The bag checks out in one post to the store's cart, so payment, shipping and tax all run through Shopify.
-- **Request an item**: for things that aren't listed. Free.
-- **Custom print**: an idea plus up to 2 photos/PDF sketches and one 3D file (STL, 3MF, OBJ, STEP), 20 MB each. Free.
+- **Request or custom print** (one page): an item that isn't listed, or a custom design, with a description,
+  optional example link, up to 2 photos/PDF sketches and one 3D file (STL, 3MF, OBJ, STEP), 20 MB each. Free.
+  Links: `#request` (old `#find` and `#custom` links still work and tick the matching choice).
 
-Both request forms post straight to the store's cart as the **$0 request product**, with the text and files as
+The request form posts straight to the store's cart as the **$0 request product**, with the text and files as
 line item properties, exactly like the theme's Custom page. Requests land in Shopify Orders with the files
 attached. Nothing is stored anywhere else and there's no server or payment code in this app.
 
