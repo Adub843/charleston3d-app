@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://cdn.shopify.com https://charleston3d.com https://www.charleston3d.com; connect-src 'self'; form-action https://charleston3d.com https://www.charleston3d.com; base-uri 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data: https://cdn.shopify.com https://charleston3d.com https://www.charleston3d.com; connect-src 'self'; form-action https://charleston3d.com https://www.charleston3d.com; base-uri 'none'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Charleston3D app | Shop or request a custom 3D print</title>
   <meta name="description" content="Order 3D printed gifts and decor from Charleston3D in Charleston, SC. Shop ready-made pieces, ask for something that isn't listed, or send a free custom request with a photo or 3D file.">
   <link rel="canonical" href="https://app.charleston3d.com/">
-  <meta name="theme-color" content="#1f2a44">
+  <meta name="theme-color" content="#15181f">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Charleston3D">
   <meta property="og:title" content="Charleston3D: shop, request or design a custom 3D print">
@@ -20,9 +20,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
   <meta name="apple-mobile-web-app-title" content="Charleston3D">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;600;700&display=swap">
+  <link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="icons/hero.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
   {
@@ -43,8 +43,7 @@
   <header class="bar">
     <div class="wrap bar-in">
       <a class="mark" href="./" aria-label="Charleston3D app home">
-        <img src="icons/icon-192.png" alt="" width="36" height="36">
-        <img class="wordmark" src="icons/wordmark.png" alt="Charleston3D" width="157" height="30">
+        <picture><source srcset="icons/wordmark.webp" type="image/webp"><img class="wordmark" src="icons/wordmark.png" alt="Charleston3D" width="157" height="30"></picture>
       </a>
       <button class="bag-btn" type="button" data-open-bag aria-haspopup="dialog">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 8h14l-1 12H6L5 8Zm4 0V6a3 3 0 0 1 6 0v2"/></svg>
@@ -59,9 +58,9 @@
       <div class="hero-text">
         <p class="eyebrow">Made to order in Charleston, SC</p>
         <h1>What can we print for you?</h1>
-        <p class="lede">Shop our pieces, ask for something you don't see, or send us your own idea. Payment is handled securely by Shopify at charleston3d.com.</p>
+        <p class="lede">Shop ready-made pieces, ask for something you don't see, or send us your own idea, photo or 3D file. Every piece is printed to order.</p>
       </div>
-      <img class="hero-img" src="icons/hero.png" alt="Charleston's Rainbow Row, 3D printed" width="300" height="210">
+      <picture class="hero-img"><source srcset="icons/hero.webp" type="image/webp"><img src="icons/hero.png" alt="Charleston's Rainbow Row, 3D printed" width="720" height="504" fetchpriority="high"></picture>
     </section>
 
     <nav class="tabs wrap" role="tablist" aria-label="What would you like to do?">
@@ -69,7 +68,7 @@
         <strong>Shop</strong><small>Ready to order</small>
       </button>
       <button role="tab" id="tab-request" aria-controls="panel-request" data-tab="request" type="button">
-        <strong>Request or custom print</strong><small>Not in the shop, or your own idea or file</small>
+        <strong>Request or custom print</strong><small>Your idea, photo or 3D file</small>
       </button>
     </nav>
 
@@ -82,9 +81,9 @@
       </div>
       <p class="muted" data-shop-note aria-live="polite"></p>
       <ul class="grid" data-grid role="list"></ul>
-      <div class="card nudge">
-        <h2>Don't see it?</h2>
-        <p>We print far more than what's listed. Tell us what you're after and we'll quote it for free.</p>
+      <div class="card nudge" data-nudge>
+        <h2 data-nudge-title>Don't see it?</h2>
+        <p data-nudge-text>We print far more than what's listed. Tell us what you're after and we'll quote it for free.</p>
         <div class="nudge-btns">
           <button class="btn" type="button" data-go="request">Send a free request</button>
         </div>
@@ -194,7 +193,7 @@
   </dialog>
 
   <footer class="foot">
-    <img class="foot-badge" src="icons/badge.png" alt="Charleston 3D badge: Ravenel Bridge and Rainbow Row" width="120" height="132" loading="lazy">
+    <picture><source srcset="icons/badge.webp" type="image/webp"><img class="foot-badge" src="icons/badge.png" alt="Charleston 3D badge: Ravenel Bridge and Rainbow Row" width="120" height="132" loading="lazy" decoding="async"></picture>
     <p><a href="https://charleston3d.com">charleston3d.com</a> · Made in Charleston, SC</p>
     <p class="muted small">Orders and payment are handled securely by Shopify at charleston3d.com.</p>
   </footer>

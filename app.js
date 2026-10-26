@@ -110,10 +110,16 @@ function drawGrid() {
       h("span", { class: "tile-title" }, p.title),
       h("span", { class: "tile-price" }, p.variants.length > 1 && new Set(p.variants.map((v) => v.price)).size > 1 ? `from ${fmt(minPrice(p))}` : fmt(minPrice(p)))))));
   const note = $("[data-shop-note]");
+  // With nothing to browse, the search box goes away and the request card becomes the empty state.
+  const empty = !products.length;
+  $(".shop-tools").hidden = empty;
+  grid.hidden = !list.length;
   if (loadFailed) return;
-  if (!products.length) note.textContent = "New pieces are on the way. In the meantime, request an item or send a custom idea.";
-  else if (!list.length) note.textContent = "Nothing matches that. Try another word, or request it below.";
-  else note.textContent = "";
+  if (empty) {
+    note.textContent = "";
+    $("[data-nudge-title]").textContent = "New pieces are on the way";
+    $("[data-nudge-text]").textContent = "The shop is being restocked. Tell us what you're after, or send your own idea, and we'll quote it for free.";
+  } else note.textContent = list.length ? "" : "Nothing matches that. Try another word, or request it below.";
 }
 $("[data-search]").addEventListener("input", (e) => { filter.q = e.target.value; drawGrid(); });
 
