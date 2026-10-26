@@ -55,11 +55,17 @@ cube = logos["print-cube"]
 for size, pad in ((32, 1), (180, 14), (192, 14), (512, 40)):
     on_square(cube, size, pad).convert("RGB").save(icons / f"icon-{size}.png", optimize=True)
 on_square(cube, 512, 40, (0, 0, 0, 0)).save(icons / "icon-512-transparent.png", optimize=True)
-fit_width(logos["wordmark"], 440).save(icons / "wordmark.png", optimize=True)
-fit_width(logos["badge"], 240).save(icons / "badge.png", optimize=True)
+# Each page image is saved twice: WebP for browsers (a quarter of the size) and PNG as the fallback.
+wordmark = fit_width(logos["wordmark"], 440)
+wordmark.save(icons / "wordmark.png", optimize=True)
+wordmark.save(icons / "wordmark.webp", quality=90, method=6)
+badge = fit_width(logos["badge"], 240)
+badge.save(icons / "badge.png", optimize=True)
+badge.save(icons / "badge.webp", quality=85, method=6)
 row = logos["rainbow-row"]
 row.thumbnail((720, 720), Image.LANCZOS)
 row.save(icons / "hero.png", optimize=True)
+row.save(icons / "hero.webp", quality=82, method=6)
 # Social card: 1200x630 on the app bar colour with the Rainbow Row logo centred.
 social = Image.new("RGBA", (1200, 630), NAVY)
 r = logos["rainbow-row"].copy()

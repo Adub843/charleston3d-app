@@ -38,7 +38,7 @@ jobs:
       - name: Collect site files
         run: |
           mkdir _site
-          cp -r index.html app.js lib.js styles.css catalog.json manifest.webmanifest robots.txt sitemap.xml icons _site/
+          cp -r index.html app.js lib.js styles.css catalog.json manifest.webmanifest robots.txt sitemap.xml icons fonts _site/
           [ -f CNAME ] && cp CNAME _site/ || true
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
