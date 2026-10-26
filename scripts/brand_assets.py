@@ -9,7 +9,7 @@ from PIL import Image
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 KITTL = "https://cache.kittl.com/pr:sharp/plain/api/users/cmg2xuxy59gcc0h7o81r9dnid/uploads/"
 LOGOS = {  # Aaron's picks, 26 Oct 2026
-    "wordmark": "cmvoxor5xcpp10jf3gk7h1r9s",  # 4: main logo (white + teal, for dark backgrounds)
+    "wordmark": "cmvoxor5xcpp10jf3gc9sulmj",  # 4: main logo (white + teal, for dark backgrounds)
     "rainbow-row": "cmvoxot6qcs0k0jes0cs2e0kp",  # 1: hero
     "badge": "cmvoxouh5cppc0jf3gk7h1r9s",  # 3: stickers, packaging, labels
     "print-cube": "cmvoxow6dcppd0jf3x9kfs61z",  # 2: icon
