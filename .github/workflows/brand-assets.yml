@@ -1,0 +1,24 @@
+# Run by hand from the Actions tab when the logos change in Kittl: downloads them into brand/,
+# rebuilds the icons and commits the result. The next push or hourly run publishes it.
+name: Brand assets
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow==11.0.0
+      - run: python scripts/brand_assets.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add brand icons
+          git diff --cached --quiet || git commit -m "Update logos and icons from Kittl"
+          git push
