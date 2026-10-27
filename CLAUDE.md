@@ -16,7 +16,7 @@
    - Nothing toy-like: no neon gimmicks, emoji, cartoon shapes, cheap clip art, stock-looking "ideas", fake badges or placeholder text.
    - **Before showing Aaron anything visual,** screenshot it at desktop (1280) and phone (390) widths and compare it side by side with those reference products. If it doesn't hold up, it isn't done.
 2. **Never Netlify, for anything.** Aaron: *"i dont want anything we are doing ever more or this project on netlify"*. Stores run on Shopify. Apps run on GitHub Pages. The console and any backend or storage run on his Cloudflare account.
-3. **Charleston3D and Elevated Designs are always separate.** Aaron: *"charleston3d and elevated designs should be separate always"*. They have separate stores, themes, repos, keys, keywords, copy, logos and links, and no file for one brand names the other. (EPIX3D is a label of Elevated Designs, so it's allowed to use ED checkout.)
+3. **Charleston3D and Elevated Designs are always separate.** Aaron: *"charleston3d and elevated designs should be separate always"*. They have separate stores, themes, repos, keys, keywords, copy, logos and links, and no file for one brand names the other.
 4. **All payments go through Shopify checkout.** No Stripe and no other payment service.
 5. **Check everything three times:** code, links and the live site. Aaron: *"delegate the tasks and check the work 3 times minimum so we can get this done fast and correct the first time"*.
 6. **Don't send previews or check-ins.** Aaron: *"dont show me fix all them then tell me quit wasting time and tokens"*. Finish, triple-check, then send **one short report**.
@@ -48,7 +48,6 @@
 | Charleston3D store | charleston3d.com | Adub843/charleston3d-site (live branch `claude/shopify-theme`, connected to Shopify GitHub) | Shopify, custom hand-coded OS 2.0 theme |
 | Elevated Designs store | elevatedshirts.com | Adub843/elevated-designs-site (theme uploaded by hand until GitHub is connected) | Shopify, custom theme |
 | ED shirt app | design.elevatedshirts.com | Adub843/elevated-shirt-app (public export) + elevated-shirt-app-private (source with costs) | GitHub Pages |
-| EPIX3D shirt app | epix3d.com | Adub843/epix3d-shirt-app | GitHub Pages (repo must be public for free Pages) |
 | Charleston3D order app | app.charleston3d.com | Adub843/charleston3d-app | GitHub Pages |
 | Business Console | business-console.business-console.workers.dev | Adub843/Business-console | Cloudflare Worker + KV |
 | Backups | n/a | elevated-designs-legacy, cloudflare-sites (14 old Cloudflare sites), elevated-shirt-app-private | GitHub (private) |
@@ -59,6 +58,7 @@ What each piece does (Aaron's design):
 - **Shirt apps:** standalone, shared by QR code. People build their own shirt from the library (SVG, PNG, DTF-ready art) or their own upload. Uploads can be edited to the best quality and made DTF-ready, including halftone removal. The apps have full tools ("don't skimp on the tools", for both apps). Orders and payment go through the ED Shopify store, and each order carries the images, shirt color, size and print dimensions. Shirt choices come from the brands ShirtSpace and BulkApparel carry, so customers can pick a cheaper shirt.
 - **C3D order app:** a Shop tab, plus one Request page for unlisted items and custom prints (2 photos/PDF + 1 STL/3MF/OBJ/STEP, 20 MB each). Requests come in as a $0 "Custom request" order.
 - **Console:** the back office. It publishes to both sites, controls Products and the Customizable switch, and runs the image library: uploads go to the shirt app library automatically when "Show in shirt builder" is ticked. It also has Insights and forecasts, a Marketing page (SEO/GEO/Bing/AI checks, change log with Undo, growth charts, keywords, daily safe fixes with auto-undo), a Promotions page (Shopify discounts, gift cards, segments, campaigns), Google Search Console, a Service Map/topology, and the shirt price sync.
+- **Social accounts (2026-10-27):** Charleston3D: Instagram @charleston3d, Facebook https://www.facebook.com/profile.php?id=61596093833204. Elevated Designs: Instagram @elevated_designs_sc, Facebook https://www.facebook.com/profile.php?id=61595574075753. Each brand posts only to its own accounts (Holo connects them). Print kit QR codes: `charleston3d-instagram`, `charleston3d-facebook`, `elevated-designs-instagram`, `elevated-designs-facebook`.
 - **Each site** has a "Get the app" button in the header and footer that goes to its own brand's app.
 
 How it connects:
@@ -71,7 +71,7 @@ How it connects:
 
 - **Charleston3D:** Charleston Rainbow Row look, with navy, sand and brass plus teal and the Rainbow Row pastels. Logos: #4 is the main wordmark ("3D" in teal), #1 Rainbow Row is the hero, #3 is the badge (stickers and packaging), #2 the print cube is the icon and app icon.
 - **Elevated Designs:** logo #7 colors only, never charcoal. Navy #15223f, ink #1f2638, muted #4d5568, cream #f7f2e8, gold #b8892a, buttons #8c6f2b. Logo #7 is the main logo and #5 the seal (tags, labels).
-- **ED shirt app icon:** #8. **EPIX3D:** an ED label with a neutral, fun title. Never call it "urban and geometric".
+- **ED shirt app icon:** #8.
 - **Console:** in ED colors (navy, cream, brass). C3D items keep their teal.
 - **SEO/GEO/Bing/AI crawlers** are built into everything. The reference site is elitebenzsolutions.com.
 - Logo and art files live in Kittl (IDs in project memory `brand-kit`). Print art with text is generated with a transparent background, because Kittl's background removal erases thin text.
@@ -80,7 +80,7 @@ How it connects:
 
 - **charleston3d.com:** DNS at **Wix**, and it stays there (DNSSEC is tied to WHOIS privacy). Mail is ImprovMX, hello@ forwarding to Gmail. Auto-renew is OFF.
 - **elevatedshirts.com:** ED primary domain. Nameservers are Google Domains/Squarespace. `design` CNAME → adub843.github.io.
-- **epix3d.com:** at Wix. A @ 185.199.108–111.153, CNAME www adub843.github.io. **Auto-renew is OFF; remind Aaron to turn it on.**
+- **epix3d.com:** RETIRED 2026-10-27 (Aaron: "let it go"). GitHub records removed from Wix DNS, auto-renew OFF, expires Jun 2, 2027. Repo Adub843/epix3d-shirt-app is archived; code bundle in project files `epix3d-shirt-app/` and `Aaron-Data\07 Archive\epix3d-shirt-app (retired 2026-10-27)`. Don't rebuild or relink it.
 - **app.charleston3d.com:** CNAME → adub843.github.io (in Wix).
 - Spare Wix domains: eastbay3d.com, holycity3d.com, harborcity3d.com, holycitylaser(co).com.
 
@@ -98,7 +98,7 @@ How it connects:
 |---|---|
 | Store data, products, prices, collections, pages, redirects, SEO fields | **Shopify MCP connector** (`graphql_query` / `graphql_mutation`, productSet, stagedUploadsCreate, collectionCreate, pageCreate, urlRedirectCreate, themeFilesUpsert). It's signed into ONE store at a time. `switch-shop` signs it out, so tell Aaron first. It blocks themePublish, themeDelete and bulk operations, so Aaron presses Publish. |
 | Theme code | Hand-coded Liquid in GitHub. Test with the liquidjs render harness, tests/liquid-strict.js, `shopify theme check`, Playwright e2e and screenshots, the WCAG contrast audit, and tests/schema-check.py before upload. |
-| DNS for charleston3d.com and epix3d.com | **Wix MCP connector** (account DNS API) |
+| DNS for charleston3d.com | **Wix MCP connector** (account DNS API) |
 | Console deploy, KV, crons, secrets | Cloudflare Workers + KV with **wrangler**, run on Aaron's PC (`npx.cmd wrangler deploy` in `Desktop\business-console`). The Cloudflare MCP connector is used for reads. |
 | Code, PRs, Pages, Actions | **GitHub MCP connector** (branches, PRs, Actions logs). Sessions can't create repos, so Aaron creates them. Free Pages needs a public repo. |
 | Art library, logos, mockups | **Kittl MCP connector** (list, upload, render-mockup, vectorize, upscale). Imports go through console `scripts/import-kittl.mjs` (Desktop "Run Kittl import.cmd"; Aaron types the console key). |
@@ -155,9 +155,8 @@ The skills live in project files `agent-skills-catalog/skills/` and on the Deskt
 
 ## 12. Open items (as of 2026-10-26 14:30Z)
 
-- **Shirt apps:** rebuild both to the real-photo standard in rule 1 (paused until Aaron says "go").
-- **epix3d.com:** goes live once the repo is public and Pages is on.
-- **Domains:** Aaron turns on auto-renew for epix3d.com and charleston3d.com.
+- **Shirt app:** rebuild it to the real-photo standard in rule 1 (paused until Aaron says "go").
+- **Domains:** charleston3d.com auto-renew is still OFF; Aaron turns it on.
 - **Console:** Aaron adds the store app scopes and the marketing secrets (IndexNow keys, Bing, GSC service account).
 - **Holo:** waiting on Aaron to confirm which Holo he means.
 
