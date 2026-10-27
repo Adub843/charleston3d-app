@@ -303,14 +303,14 @@ function setupRequests() {
     form.addEventListener("input", (e) => {
       if (e.target.getAttribute("aria-invalid") !== "true") return;
       check(e.target);
-      if (!form.querySelector("[aria-invalid=true]")) $("[data-status]", form).textContent = "";
+      if (!form.querySelector("[aria-invalid=true]")) $("[data-status]", form).textContent = ""; $("[data-status]", form).classList.remove("bad");
     });
     form.addEventListener("submit", (e) => {
       const bad = $$("textarea, input", form).filter((el) => !check(el));
       if (bad.length) {
         e.preventDefault();
         bad[0].focus();
-        $("[data-status]", form).textContent = "Please fix the highlighted field.";
+        $("[data-status]", form).textContent = "Please fix the highlighted field."; $("[data-status]", form).classList.add("bad");
         return;
       }
       // Drop empty file inputs so Shopify doesn't record blank file properties.
@@ -320,7 +320,7 @@ function setupRequests() {
       const btn = $("button[type=submit]", form);
       btn.disabled = true;
       btn.textContent = $$("[data-file]", form).some((i) => i.files.length) ? "Uploading your files…" : "Sending your request…";
-      $("[data-status]", form).textContent = "Taking you to the cart…";
+      $("[data-status]", form).textContent = "Taking you to the cart…"; $("[data-status]", form).classList.remove("bad");
       setTimeout(() => { // if the store is slow or the page comes back from history, let them try again
         btn.disabled = false; btn.textContent = "Send my free request";
         $$("input[disabled], textarea[disabled]", form).forEach((x) => { x.disabled = false; });
